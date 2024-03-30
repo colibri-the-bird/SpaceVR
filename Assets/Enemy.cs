@@ -157,7 +157,18 @@ public class Enemy : MonoBehaviour
             {
                 foreach (var e in obj)
                 {
-                    if (e != null) e.GetComponent<Player>().HP -= e.GetComponent<Player>().DefK * 20;
+                    if (e != null)
+                    {
+                        if (e.GetComponent<Player>() != null)
+                        {
+                            e.GetComponent<Player>().HP -= e.GetComponent<Player>().DefK * 20;
+                        }
+
+                        if (e.GetComponent<Botik>() != null)
+                        {
+                            e.GetComponent<Botik>().HP -= e.GetComponent<Botik>().DefK * 20;
+                        }
+                    }
                 }
             }
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length/2);
@@ -173,7 +184,7 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Player>() != null)
+        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null))
         {
             obj = obj.Append(collision.gameObject).ToArray();
             atc = true;
@@ -182,7 +193,7 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Player>() != null)
+        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null))
         {
             obj = obj.Where(val => val != collision.gameObject).ToArray();
             atc = false;
