@@ -236,20 +236,20 @@ MonoBehaviour:
   legMinHeight: 0.6
   legMaxHeight: 1.2
   handles: []
-  handleOffsetMinRadius: 0.5
-  handleOffsetMaxRadius: 1
+  handleOffsetMinRadius: 0.2
+  handleOffsetMaxRadius: 0.65
   handleOffsets: []
-  finalFootDistance: 0.6
+  finalFootDistance: 0.1
   growCoef: 3
   growTarget: 1
   progression: 0
   minDuration: 0.5
-  rotationSpeed: 180
-  minRotSpeed: 200
-  maxRotSpeed: 400
+  rotationSpeed: 360
+  minRotSpeed: 100
+  maxRotSpeed: 300
   oscillationSpeed: 0
-  minOscillationSpeed: 20
-  maxOscillationSpeed: 100
+  minOscillationSpeed: 40
+  maxOscillationSpeed: 200
   myColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8756831054016911778
 MonoBehaviour:
