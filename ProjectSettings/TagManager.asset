@@ -9,6 +9,7 @@ TagManager:
   - Candice Agent
   - Bot
   - Enemy
+  - Underground
   layers:
   - Default
   - TransparentFX
