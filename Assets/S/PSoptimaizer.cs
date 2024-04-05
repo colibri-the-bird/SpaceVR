@@ -35,11 +35,7 @@ public class PSoptimaizer : MonoBehaviour
                     }
                 }
             }
-<<<<<<< Updated upstream
-            yield return new WaitForSeconds(Time.deltaTime*10);
-=======
             yield return new WaitForSeconds(Time.deltaTime * 10);
->>>>>>> Stashed changes
         }
     }
 }
