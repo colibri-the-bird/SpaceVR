@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("Move");
             //непрерывное движение куба пока то не достигнет цели
-            if (Vector3.Distance(finih.position, transform.position) > R)
+            /*if (Vector3.Distance(finih.position, transform.position) > R)
             {
                 transform.position += transform.forward * speedCube * Time.deltaTime;
             }
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
                         transform.localRotation = Quaternion.Euler(povorot);
                     }
                 }
-            }
+            }*/
             if (timeFlag + 1 < Time.time && stenaTime)
             {
                 stenaTime = false;

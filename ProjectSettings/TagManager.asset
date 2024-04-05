@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Terrain
   - Fog
+  - Candice Agent
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstale
   - Water
   - UI
   - 
