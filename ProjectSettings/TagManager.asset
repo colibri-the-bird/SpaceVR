@@ -7,7 +7,10 @@ TagManager:
   - Terrain
   - Fog
   - Candice Agent
+<<<<<<< Updated upstream
   - Bot
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
