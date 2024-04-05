@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 6295281793220405963}
   - component: {fileID: 7300174688574944678}
   - component: {fileID: 2597460912497340963}
+  - component: {fileID: 8799083648030269898}
   m_Layer: 0
   m_Name: Ciccio_LOD
   m_TagString: Bot
@@ -1017,6 +1018,105 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8799083648030269898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828236848293807429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03293482103d62c4ab9d9b4b7595e1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isATitan: 0
+  attachKillCam: 0
+  shakeData: {fileID: 0}
+  thisAgent: {fileID: 0}
+  atkDamage: 0
+  TemplateAnimator: {fileID: 0}
+  animSpeed: 1
+  inventoryDrop: {fileID: 0}
+  HealthBar: {fileID: 0}
+  hit: 0
+  dead: 0
+  thisComboDamagePerHit: 0
+  agentID: 0
+  maxHitPoints: 100
+  hitPoints: 100
+  halfHeight: 100
+  is3D: 1
+  mainCamera: {fileID: 0}
+  rig: {fileID: 0}
+  enableRagdoll: 0
+  templateAnimator: {fileID: 0}
+  enemies: []
+  allies: []
+  players: []
+  player: {fileID: 0}
+  mainTarget: {fileID: 0}
+  fleeTarget: {fileID: 0}
+  wanderTarget: {fileID: 0}
+  behaviorTree:
+    _name: 
+    nodes: []
+  agentState:
+    state:
+      keys:
+      - wood
+      - axe
+      values: 0000000000000000
+    stateName: Game State
+  detectionRadius: 3
+  detectionLines: 10
+  lineOfSight: 3
+  detectionHeight: 3
+  sensorType: 0
+  objectDetected: 0
+  resourceDetected: 0
+  playerDetected: 0
+  allyDetected: 0
+  enemyDetected: 0
+  objectTags: []
+  enemyTags: []
+  resourceTags: []
+  allyTags: []
+  perceptionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleAvoidaceDistance: 3
+  obstacleAvoidanceAOE: 0.5
+  lookPoint: {x: 0, y: 0, z: 0}
+  movePoint: {x: 0, y: 0, z: 0}
+  moveSpeed: 7
+  rotationSpeed: 12
+  isMoving: 0
+  enableHeadLook: 0
+  headLookTarget: {fileID: 0}
+  headLookIntensity: 1
+  waypoint: {fileID: 0}
+  _minPathUpdateTime: 0.2
+  _pathUpdateMoveThreshold: 0.5
+  _turnSpeed: 0
+  _turnDist: 0
+  _stoppingDist: 0
+  isCalculatingPath: 0
+  isFollowingPath: 0
+  sqrMoveThreshold: 0
+  pathIndex: 0
+  drawAgentPath: 0
+  attackTarget: {fileID: 0}
+  resourceTarget: {fileID: 0}
+  attackDamage: 3
+  attacksPerSecond: 1
+  attackRange: 1
+  damageAngle: 45
+  attackType: 0
+  projectile: {fileID: 0}
+  projectileSpawnPos: {fileID: 0}
+  hasAttackAnimation: 0
+  isAttacking: 0
 --- !u!1 &3213973891837328974
 GameObject:
   m_ObjectHideFlags: 0

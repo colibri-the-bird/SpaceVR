@@ -241,7 +241,7 @@ public class Botik : MonoBehaviour
         {
             animator.SetTrigger("Move");
             //непрерывное движение куба пока то не достигнет цели
-            if (Vector3.Distance(finih.position, transform.position) > R)
+            /*if (Vector3.Distance(finih.position, transform.position) > R)
             {
                 transform.position += transform.forward * speedCube * Time.deltaTime;
             }
@@ -302,7 +302,7 @@ public class Botik : MonoBehaviour
             {
                 stenaTime = false;
                 stena = false;
-            }
+            }*/
         }
     }
     Vector3 OptionDirection(Transform block, Transform myTransform)
