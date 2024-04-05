@@ -824,9 +824,10 @@ GameObject:
   - component: {fileID: 7300174688574944678}
   - component: {fileID: 2597460912497340963}
   - component: {fileID: 8799083648030269898}
+  - component: {fileID: 6182657712459955315}
   m_Layer: 0
   m_Name: Ciccio_LOD
-  m_TagString: Bot
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,9 +1069,9 @@ MonoBehaviour:
       - axe
       values: 0000000000000000
     stateName: Game State
-  detectionRadius: 3
+  detectionRadius: 200
   detectionLines: 10
-  lineOfSight: 3
+  lineOfSight: 360
   detectionHeight: 3
   sensorType: 0
   objectDetected: 0
@@ -1078,13 +1079,15 @@ MonoBehaviour:
   playerDetected: 0
   allyDetected: 0
   enemyDetected: 0
-  objectTags: []
-  enemyTags: []
+  objectTags:
+  - Player
+  enemyTags:
+  - Player
   resourceTags: []
   allyTags: []
   perceptionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleAvoidaceDistance: 3
   obstacleAvoidanceAOE: 0.5
   lookPoint: {x: 0, y: 0, z: 0}
@@ -1117,6 +1120,19 @@ MonoBehaviour:
   projectileSpawnPos: {fileID: 0}
   hasAttackAnimation: 0
   isAttacking: 0
+--- !u!114 &6182657712459955315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2828236848293807429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67462d62f34df041a3c2d7e649de6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedBehaviorTree: 0
 --- !u!1 &3213973891837328974
 GameObject:
   m_ObjectHideFlags: 0
