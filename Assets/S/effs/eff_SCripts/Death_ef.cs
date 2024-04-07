@@ -33,7 +33,10 @@ public class Death_ef : MonoBehaviour
         {
             if (e != null)
             {
-                e.GetComponent<Enemy>().DefK = e.GetComponent<Enemy>().DefK * K * M;
+                if (e.GetComponent<Enemy>() != null)
+                    e.GetComponent<Enemy>().DefK = e.GetComponent<Enemy>().DefK * K * M;
+                if (e.GetComponent<Player>() != null)
+                    e.GetComponent<Player>().DefK = e.GetComponent<Player>().DefK * K * M;
             }
         }
         yield return new WaitForSeconds(9*time/10);
@@ -41,7 +44,10 @@ public class Death_ef : MonoBehaviour
         {
             if ( e != null)
             {
-                e.GetComponent<Enemy>().DefK = e.GetComponent<Enemy>().DefK / K / M;
+                if (e.GetComponent<Enemy>() != null)
+                    e.GetComponent<Enemy>().DefK = e.GetComponent<Enemy>().DefK / K / M;
+                if (e.GetComponent<Player>() != null)
+                    e.GetComponent<Player>().DefK = e.GetComponent<Player>().DefK / K / M;
             }
         }
         
@@ -50,7 +56,7 @@ public class Death_ef : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Enemy>() != null)
+        if ((collision.gameObject.GetComponent<Enemy>() != null) && (collision.gameObject.GetComponent<Player>() != null))
         {
             obj = obj.Append(collision.gameObject).ToArray();
         }

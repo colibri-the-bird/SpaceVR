@@ -21,30 +21,28 @@ public class SpawnEnemyManager : MonoBehaviour
         while (true)
         {
             System.Random rand = new System.Random();
-            RaycastHit[] hits;
-            hits = Physics.RaycastAll(new Vector3(((float)rand.NextDouble() - 0.5f) * 100 + this.transform.position.x, this.transform.position.y + 500, ((float)rand.NextDouble() - 0.5f) * 100 + this.transform.position.z), new Vector3(0,-1,0), 1000.0F);
-            var a = false;
-            var b = true;
-            Vector3 coord = new Vector3 (0,0,0);
-            for(int i = 0; i < hits.Length; i++)
+            GameObject firstObj = null;
+            Vector3 pos = new Vector3(0,0,0);
+            Vector3 position = new Vector3(((float)rand.NextDouble() - 0.5f) * 100 + this.transform.position.x, this.transform.position.y + 150, ((float)rand.NextDouble() - 0.5f) * 100 + this.transform.position.z);
+            RaycastHit hit;
+            Ray ray = new Ray(position, new Vector3(0, -1, 0));
+            if (Physics.Raycast(ray, out hit))
             {
-                if (hits[i].collider.tag != "Underground")
+                if ((firstObj == null)&&(hit.collider.gameObject.name != "Trigger"))
                 {
-                    b = false;
-                    break;
+                    firstObj = hit.collider.gameObject;
+                    pos = hit.point;
                 }
-                if ((hits[i].collider.tag == "Underground")&&(Vector3.Distance(hits[i].point,center.position) > R_nospawn))
-                {
-                    a = true;
-                    coord = hits[i].point;
-                }
-                
-            }
-            if (a && b)
-            {
-                var clone = Instantiate(enemies[Loc_ID], coord, Quaternion.identity);
-            }
 
+            }
+            if (firstObj != null)
+            {
+                print(firstObj.name);
+                if (firstObj.tag == "Underground")
+                {
+                    Instantiate(enemies[Loc_ID], pos, Quaternion.identity);
+                }
+            }
             yield return new WaitForSeconds(spawn_speed);
         }
     }

@@ -33,7 +33,7 @@ public class El_ef : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Enemy>() != null)&&(!en.Contains(collision.gameObject)))
+        if ((collision.gameObject.GetComponent<Enemy>() != null)&&(!en.Contains(collision.gameObject))&&(Kvo>0))
         {
             this.gameObject.transform.localScale = new Vector3(0, 0, 0);
             UnityEngine.Debug.DrawLine(this.gameObject.transform.position, collision.transform.position, Color.cyan);

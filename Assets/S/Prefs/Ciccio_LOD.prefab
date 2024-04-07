@@ -2442,7 +2442,7 @@ GameObject:
   - component: {fileID: 740465695940684927}
   - component: {fileID: 922886566106683105}
   m_Layer: 0
-  m_Name: tar
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2509,7 +2509,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 25
+  m_Radius: 200
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &922886566106683105
 MonoBehaviour:
