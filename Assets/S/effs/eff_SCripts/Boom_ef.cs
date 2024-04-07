@@ -48,5 +48,12 @@ public class Boom_ef : MonoBehaviour
                             (transform.position.z - collision.transform.position.z) * 100 * R * M, ForceMode.Impulse);
             collision.gameObject.GetComponent<Enemy>().HP -= collision.gameObject.GetComponent<Enemy>().DefK * M * Dmg / 2;
         }
+        if (collision.gameObject.GetComponent<Player>() != null)
+        {
+            if (Dmg < 0) 
+            {
+                collision.gameObject.GetComponent<Enemy>().HP -= collision.gameObject.GetComponent<Player>().DefK * M * Dmg / 2;
+            }
+        }
     }
 }

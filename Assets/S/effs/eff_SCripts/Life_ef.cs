@@ -37,7 +37,10 @@ public class Life_ef : MonoBehaviour
                 {
                     if (e != null)
                     {
-                        e.GetComponent<Enemy>().HP -= e.GetComponent<Enemy>().DefK * M * Dmg / time;
+                        if (e.GetComponent<Enemy>() != null)
+                            e.GetComponent<Enemy>().HP -= e.GetComponent<Enemy>().DefK * M * Dmg / time;
+                        if (e.GetComponent<Player>() != null)
+                            e.GetComponent<Enemy>().HP -= e.GetComponent<Player>().DefK * M * Dmg / time;
                     }
                 }
             }
@@ -48,7 +51,7 @@ public class Life_ef : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Enemy>() != null)
+        if ((collision.gameObject.GetComponent<Enemy>() != null)&& (collision.gameObject.GetComponent<Player>() != null))
         {
             obj = obj.Append(collision.gameObject).ToArray();
         }
