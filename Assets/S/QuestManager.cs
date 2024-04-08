@@ -24,6 +24,7 @@ public class QuestManager : MonoBehaviour
                 if (Task_obj.Length == 1) win = true;
                 Task_obj = Task_obj.Where(val => val != Task_obj[0]).ToArray();
             }
+
         }
         if (win)
         {

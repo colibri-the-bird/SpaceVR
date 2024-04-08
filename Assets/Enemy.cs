@@ -168,6 +168,11 @@ public class Enemy : MonoBehaviour
                         {
                             e.GetComponent<Botik>().HP -= e.GetComponent<Botik>().DefK * 20;
                         }
+
+                        if (e.GetComponent<Civil>() != null)
+                        {
+                            e.GetComponent<Civil>().HP -= e.GetComponent<Civil>().DefK * 20;
+                        }
                     }
                 }
             }
@@ -184,7 +189,7 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null))
+        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null)| (collision.gameObject.GetComponent<Civil>() != null))
         {
             obj = obj.Append(collision.gameObject).ToArray();
             atc = true;
@@ -193,7 +198,7 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerExit(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null))
+        if ((collision.gameObject.GetComponent<Player>() != null)|(collision.gameObject.GetComponent<Botik>() != null)|(collision.gameObject.GetComponent<Civil>() != null))
         {
             obj = obj.Where(val => val != collision.gameObject).ToArray();
             atc = false;
