@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Rendering.PostProcessing;
 
 public class balls : MonoBehaviour
 {
@@ -26,9 +27,16 @@ public class balls : MonoBehaviour
 
     public float[] eff1;
     public float[] eff2;
-    
+    public GameObject[] PS;
 
+    private GameObject clone;
+    public PostProcessVolume m_Volume;
+    public Vignette m_Vignette;
 
+    void Start()
+    {
+        m_Vignette = m_Volume.profile.GetSetting<Vignette>();
+    }
 
     public void Relload()
     {
@@ -117,10 +125,15 @@ public class balls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*m_Vignette.intensity.value = 0.9f;*/
         if (Input.GetKey(KeyCode.F)|OVRInput.Get(OVRInput.Button.One))
         {
+            S_type = spheres[Sphere1_id].type_s;
+            if (s_time == 0)
+            {
+                clone = Instantiate(PS[S_type], this.transform.position, this.transform.rotation, this.transform);
+            }
             s_time += Time.deltaTime;
-            this.GetComponent<MeshRenderer>().enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.F) | OVRInput.GetUp(OVRInput.Button.One))
         {
@@ -129,7 +142,7 @@ public class balls : MonoBehaviour
                 Relload();
             }
             s_time = 0;
-            this.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(clone);
         }
     }
 }

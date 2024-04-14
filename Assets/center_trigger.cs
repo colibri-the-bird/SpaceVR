@@ -19,7 +19,7 @@ public class center_trigger : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Civil>() != null)
         {
-            collision.gameObject.GetComponent<Civil>().Parent.GetComponent<Capsule_G>().Pass = true;
+            collision.gameObject.GetComponent<Civil>().Parent.GetComponent<Capsule_G>().Time_Pass = true;
             Destroy(collision.gameObject);
         }
     }
