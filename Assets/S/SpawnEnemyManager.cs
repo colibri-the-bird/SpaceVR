@@ -30,8 +30,12 @@ public class SpawnEnemyManager : MonoBehaviour
             {
                 if ((firstObj == null)&&(hit.collider.gameObject.name != "Trigger"))
                 {
+<<<<<<< Updated upstream
                     firstObj = hit.collider.gameObject;
                     pos = hit.point;
+=======
+                    b = false;
+>>>>>>> Stashed changes
                 }
 
             }
