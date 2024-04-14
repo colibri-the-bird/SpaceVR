@@ -32,10 +32,21 @@ public class balls : MonoBehaviour
     private GameObject clone;
     public PostProcessVolume m_Volume;
     public Vignette m_Vignette;
+    public Grain m_Grain;
+    public Bloom m_Bloom;
+    public float Delta_PP_Speed;
+    private float Start_Volue1;
+    private float Start_Volue2;
+    private float Start_Volue3;
 
     void Start()
     {
         m_Vignette = m_Volume.profile.GetSetting<Vignette>();
+        m_Grain = m_Volume.profile.GetSetting<Grain>();
+        m_Bloom = m_Volume.profile.GetSetting<Bloom>();
+        Start_Volue1 = m_Vignette.intensity.value;
+        Start_Volue2 = m_Grain.intensity.value;
+        Start_Volue3 = m_Bloom.intensity.value;
     }
 
     public void Relload()
@@ -125,6 +136,7 @@ public class balls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         /*m_Vignette.intensity.value = 0.9f;*/
         if (Input.GetKey(KeyCode.F)|OVRInput.Get(OVRInput.Button.One))
         {
@@ -133,7 +145,16 @@ public class balls : MonoBehaviour
             {
                 clone = Instantiate(PS[S_type], this.transform.position, this.transform.rotation, this.transform);
             }
+            m_Vignette.intensity.value = Mathf.MoveTowards(m_Vignette.intensity.value, 0.25f, Delta_PP_Speed * Time.deltaTime);
+            m_Grain.intensity.value = Mathf.MoveTowards(m_Grain.intensity.value, 0.75f, Delta_PP_Speed * Time.deltaTime*2);
+            m_Bloom.intensity.value = Mathf.MoveTowards(m_Bloom.intensity.value, 50f, Delta_PP_Speed * Time.deltaTime * 250);
             s_time += Time.deltaTime;
+        }
+        else
+        {
+            m_Vignette.intensity.value = Mathf.MoveTowards(m_Vignette.intensity.value, Start_Volue1, Delta_PP_Speed * Time.deltaTime);
+            m_Grain.intensity.value = Mathf.MoveTowards(m_Grain.intensity.value, Start_Volue2, Delta_PP_Speed * Time.deltaTime * 2);
+            m_Bloom.intensity.value = Mathf.MoveTowards(m_Bloom.intensity.value, Start_Volue3, Delta_PP_Speed * Time.deltaTime * 250);
         }
         if (Input.GetKeyUp(KeyCode.F) | OVRInput.GetUp(OVRInput.Button.One))
         {
